@@ -2,7 +2,7 @@
   "name": "snex",
   "version": "0.0.0",
   "description": "Libraries for listening to gamepad input from SNEX gamepads.",
-  "main": "index.js",
+  "main": "src/snex.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -1,6 +1,6 @@
 {
   "name": "snex",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Libraries for listening to gamepad input from SNEX gamepads.",
   "main": "src/snex.js",
   "scripts": {

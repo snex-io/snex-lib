@@ -15,11 +15,19 @@ Returns a Promise that resolves to a session object containing session Id, gamep
 }
 ```
 
+Example
 ```js
+const Peer = require('Peer');
 const snex = require('snex');
 
-snex.createSession(PEER_JS_API_KEY, peerJSChannelId, gamepadType)
-.then(session => {
-  console.log(session);
+const PEER_API_KEY = 'lwjd5qra8257b9';
+
+const peer = new Peer({key: PEER_API_KEY});
+
+peer.on('open', function(id) {
+  snex.createSession(PEER_API_KEY, id, 'nes')
+    .then(session => {
+      console.log(session);
+    });
 });
 ```

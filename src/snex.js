@@ -1,44 +1,29 @@
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
-      define(['Peer'], factory);
+      define([], factory);
   } else if (typeof module === 'object' && module.exports) {
-      module.exports = factory(require('Peer'));
+      module.exports = factory();
   } else {
-      root.snex = factory(root.b);
+      root.snex = factory();
   }
-}(this, function(Peer) {
-  const SNEX_URL = 'http://snex.io';
+}(this, function() {
+  const snex = {
+    URL: 'http://snex.io',
 
-  function session(key, pad) {
-    return open(key).then(({ peer, id }) => {
+    createURL: function createURL(key, id, pad = 'nes') {
       const body = new FormData();
       body.append('key', key);
       body.append('id', id);
       body.append('type', pad);
 
-      return fetch(SNEX_URL + '/api/v1/session', {
+      return fetch(snex.URL + '/api/v1/session', {
         body,
         method: 'POST',
       })
       .then(r => r.json())
-      .then(({id}) => {
-        return {
-          session: peer,
-          snexId: id,
-          snexURL: SNEX_URL + '/' + id,
-        }
-      });
-    });
-  }
-
-  function open(key) {
-    return new Promise(res => {
-      const peer = new Peer({ key });
-      peer.on('open', id => res({peer, id}));
-    });
-  }
-
-  return {
-    session,
+      .then(({url}) => url);
+    }
   };
+
+  return snex;
 }));

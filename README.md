@@ -9,7 +9,7 @@ Library for using SNEX.io gamepads build on [Peer.js](http://peerjs.com/).
 
 1) Install
 
-    yarn add snex
+        yarn add snex
 
 2) Implement
 
@@ -37,7 +37,7 @@ snex.createSession(peer).then(session => {
 
 1) Install
 
-    <script src="http://snex.io/lib/latest.js"></script>
+        <script src="http://snex.io/lib/latest.js"></script>
 
 2) Implement
 

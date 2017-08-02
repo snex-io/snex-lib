@@ -8,7 +8,7 @@
 
 <body>
 <script type="text/javascript">
-    const peer = snex.createPeer('localhost:9000');
+    const peer = snex.createPeer('snex-peer-server.herokuapp.com:80');
     snex.createSession(peer).then(session => {
         console.log(session);
 

@@ -17,7 +17,7 @@ describe('SNEX Lib', () => {
     });
 
     it('has expected SIGNALING_HOST', () => {
-        expect(snex.SIGNALING_SERVER).to.be('snex.io:9000');
+        expect(snex.SIGNALING_SERVER).to.be('peer-exchange.snex.io:80');
     });
 
     describe.skip('#createSession', () => {

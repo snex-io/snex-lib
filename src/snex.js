@@ -3,7 +3,7 @@ const Peer = require('peerjs');
 const util = require('peerjs/lib/util');
 
 const API_URL = 'http://snex.io';
-const SIGNALING_SERVER = 'snex.io:9000';
+const SIGNALING_SERVER = 'peer-exchange.snex.io:80';
 
 class Session extends EventEmitter
 {

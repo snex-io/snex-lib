@@ -1,11 +1,12 @@
 {
   "name": "snex",
   "version": "0.1.0",
-  "description": "Libraries for listening to gamepad input from SNEX gamepads.",
+  "description": "Library for listening to input from SNEX gamepads.",
   "license": "MIT",
   "main": "dist/snex.js",
   "scripts": {
-    "build": "webpack --progress --colors"
+    "build": "webpack --progress --colors",
+    "build:prod": "NODE_ENV=production yarn run build"
   },
   "dependencies": {
     "peerjs": "https://github.com/peers/peerjs.git"

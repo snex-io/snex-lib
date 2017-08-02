@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>SNEX</title>
+    <script type="text/javascript" src="snex-browser.js"></script>
+</head>
+
+<body>
+<script type="text/javascript">
+    const peer = snex.createPeer('localhost:9000');
+    snex.createSession(peer).then(session => {
+        console.log(session);
+
+        session.on('connection', conn => {
+            conn.on('data', data => {
+                console.log(data);
+            });
+        });
+
+        return session.createURL('nes', 'http://localhost:8080');
+    })
+    .then(desc => {
+        console.log(desc, desc.url);
+    });
+</script>
+</body>
+</html>

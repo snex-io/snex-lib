@@ -6,7 +6,8 @@
   "main": "dist/snex.js",
   "scripts": {
     "build": "webpack --progress --colors",
-    "build:prod": "NODE_ENV=production yarn run build"
+    "build:prod": "NODE_ENV=production yarn run build",
+    "test": "mocha './src/**/*-test.js'"
   },
   "dependencies": {
     "peerjs": "https://github.com/peers/peerjs.git"
@@ -16,6 +17,10 @@
     "babel-loader": "^7.1.1",
     "babel-preset-env": "^1.6.0",
     "copy-webpack-plugin": "^4.0.1",
+    "expect.js": "^0.3.1",
+    "jsdom": "^11.1.0",
+    "mocha": "^3.5.0",
+    "sinon": "^2.4.1",
     "webpack": "^3.4.1"
   }
 }

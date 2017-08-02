@@ -1,6 +1,6 @@
-import EventEmitter from 'eventemitter3';
-import Peer from 'peerjs';
-import util from 'peerjs/lib/util';
+const EventEmitter = require('eventemitter3');
+const Peer = require('peerjs');
+const util = require('peerjs/lib/util');
 
 const API_URL = 'http://snex.io';
 const SIGNALING_SERVER = 'snex.io:9000';
@@ -35,12 +35,12 @@ class Session extends EventEmitter
   }
 }
 
-export function createPeer(server = SIGNALING_SERVER, path = '/') {
+function createPeer(server = SIGNALING_SERVER, path = '/') {
   const [host, port] = server.split(':');
   return new Peer({host, port, path});
 }
 
-export function createSession(peer = createPeer()) {
+function createSession(peer = createPeer()) {
   return new Promise((resolve, reject) => {
     peer.on('open', id => {
       resolve(new Session(peer));
@@ -50,7 +50,7 @@ export function createSession(peer = createPeer()) {
   });
 }
 
-export function joinSession(id, peer = createPeer()) {
+function joinSession(id, peer = createPeer()) {
   return new Promise((resolve, reject) => {
     peer.on('error', reject);
 
@@ -61,12 +61,16 @@ export function joinSession(id, peer = createPeer()) {
   });
 }
 
-export function isSupported() {
+function isSupported() {
   return util.supports.data;
 }
 
-export {
+module.exports = {
+  createPeer,
+  createSession,
+  joinSession,
+  isSupported,
   Peer,
   API_URL,
   SIGNALING_SERVER,
-}
+};

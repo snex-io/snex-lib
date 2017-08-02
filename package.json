@@ -1,6 +1,6 @@
 {
   "name": "snex",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Library for listening to input from SNEX gamepads.",
   "license": "MIT",
   "homepage": "http://snex.io",

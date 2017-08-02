@@ -16,6 +16,28 @@ describe('SNEX Lib', () => {
         expect(snex.API_URL).to.be('http://snex.io');
     });
 
+    it('exposes controller index', () => {
+        expect(snex.Controllers).to.be.an(Object);
+    });
+
+    describe('Controller Index', () => {
+        it('has NES', () => {
+            expect(snex.Controllers.nes.title).to.be('Nintendo 8-bit');
+        });
+
+        it('has SNES', () => {
+            expect(snex.Controllers.snes.title).to.be('Super Famicom');
+        });
+
+        it('has US SNES', () => {
+            expect(snex.Controllers['snes-us'].title).to.be('Super Nintendo');
+        });
+
+        it('has Genesis', () => {
+            expect(snex.Controllers['genesis'].title).to.be('Sega Genesis');
+        });
+    });
+
     it('has expected SIGNALING_HOST', () => {
         expect(snex.SIGNALING_SERVER).to.be('peer-exchange.snex.io:80');
     });

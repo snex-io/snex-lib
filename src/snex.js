@@ -5,6 +5,8 @@ const util = require('peerjs/lib/util');
 const API_URL = 'http://snex.io';
 const SIGNALING_SERVER = 'peer-exchange.snex.io:80';
 
+const Controllers = require('./controllers');
+
 class Session extends EventEmitter
 {
   constructor(peer) {
@@ -70,6 +72,7 @@ module.exports = {
   createSession,
   joinSession,
   isSupported,
+  Controllers,
   Peer,
   API_URL,
   SIGNALING_SERVER,

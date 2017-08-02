@@ -36,7 +36,7 @@ snex.createSession()
 
 ### In Browser
 
-1) Install
+1) Add the following snippet to your site.
 ```
 <script src="http://cdn.snex.io/snex.latest.min.js"></script>
 ```

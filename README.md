@@ -38,7 +38,7 @@ snex.createSession()
 
 1) Add the following snippet to your site.
 ```
-<script src="http://cdn.snex.io/snex.latest.min.js"></script>
+<script src="https://cdn.snex.io/snex.latest.min.js"></script>
 ```
 
 2) Implement

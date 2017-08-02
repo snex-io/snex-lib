@@ -16,9 +16,6 @@
     "build:prod": "NODE_ENV=production yarn run build",
     "test": "mocha './src/**/*-test.js'"
   },
-  "dependencies": {
-    "peerjs": "https://github.com/snex-io/peerjs.git"
-  },
   "devDependencies": {
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
@@ -27,6 +24,7 @@
     "expect.js": "^0.3.1",
     "jsdom": "^11.1.0",
     "mocha": "^3.5.0",
+    "peerjs": "https://github.com/snex-io/peerjs.git",
     "sinon": "^2.4.1",
     "webpack": "^3.4.1"
   }

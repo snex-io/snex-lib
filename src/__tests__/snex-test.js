@@ -42,6 +42,12 @@ describe('SNEX Lib', () => {
         expect(snex.SIGNALING_SERVER).to.be('peer-exchange.snex.io:80');
     });
 
+    describe('#buildURL', () => {
+        it('returns a URL given a controller type and id', () => {
+            expect(snex.buildURL('nes', '1r91j2/1125')).to.be('http://snex.io/nes?id=1r91j2%2F1125');
+        });
+    });
+
     describe.skip('#createSession', () => {
         beforeEach(() => {
             sinon.stub(snex, 'createPeer');

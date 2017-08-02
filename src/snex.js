@@ -37,6 +37,10 @@ class Session extends EventEmitter
   }
 }
 
+function buildURL(type, id) {
+  return `${API_URL}/${type}?id=${encodeURIComponent(id)}`;
+}
+
 function createPeer(server = SIGNALING_SERVER, path = '/') {
   const [host, port] = server.split(':');
   return new Peer({host, port, path});
@@ -68,6 +72,7 @@ function isSupported() {
 }
 
 module.exports = {
+  buildURL,
   createPeer,
   createSession,
   joinSession,

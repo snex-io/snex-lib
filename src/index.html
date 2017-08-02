@@ -3,13 +3,12 @@
 <head>
     <meta charset="utf-8">
     <title>SNEX</title>
-    <script type="text/javascript" src="snex.latest.js"></script>
+    <script type="text/javascript" src="snex.latest.min.js"></script>
 </head>
 
 <body>
 <script type="text/javascript">
-    const peer = snex.createPeer('snex-peer-server.herokuapp.com:80');
-    snex.createSession(peer).then(session => {
+    snex.createSession().then(session => {
         console.log(session);
 
         session.on('connection', conn => {
@@ -18,7 +17,7 @@
             });
         });
 
-        return session.createURL('nes', 'http://localhost:8080');
+        return session.createURL('nes');
     })
     .then(desc => {
         console.log(desc, desc.url);

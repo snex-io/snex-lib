@@ -1,33 +1,60 @@
 # SNEX
 
-Library for using SNEX.io gamepads. Requires [Peer.js](http://peerjs.com/) and a Peer.js API key.
+Library for using SNEX.io gamepads build on [Peer.js](http://peerjs.com/).
+
 
 ## Usage
 
-### createSession(`peerJSApiKey`, `peerJSChannelId`, [`gamepadType`])
+### Using Node environment
 
-Returns a Promise that resolves to a session object containing session Id, gamepad URL and expire date for URL.
-```json
-{
-  "id": "XSBJ",
-  "url": "http://snex.io/XSBJ",
-  "expiresAt": "2017-01-08T04:54:38.476Z"
-}
-```
+1) Install
 
-Example
+    yarn add snex
+
+2) Implement
+
 ```js
-const Peer = require('Peer');
 const snex = require('snex');
 
-const PEER_API_KEY = 'lwjd5qra8257b9';
+snex.createSession(peer).then(session => {
 
-const peer = new Peer({key: PEER_API_KEY});
-
-peer.on('open', function(id) {
-  snex.createSession(PEER_API_KEY, id, 'nes')
-    .then(session => {
-      console.log(session);
+    session.on('connection', conn => {
+        conn.on('data', data => {
+            if (data.state && data.key === 'A') {
+                console.log('User pressed "A"');
+            }
+        });
     });
+
+    return session.createURL('nes', 'http://localhost:8080');
+})
+.then(desc => {
+    console.log('Go to url to play', desc.url);
+});
+```
+
+### In Browser
+
+1) Install
+
+    <script src="http://snex.io/lib/latest.js"></script>
+
+2) Implement
+
+```js
+window.snex.createSession(peer).then(session => {
+
+    session.on('connection', conn => {
+        conn.on('data', data => {
+            if (data.state && data.key === 'A') {
+                console.log('User pressed "A"');
+            }
+        });
+    });
+
+    return session.createURL('nes', 'http://localhost:8080');
+})
+.then(desc => {
+    console.log('Go to url to play', desc.url);
 });
 ```

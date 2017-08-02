@@ -8,11 +8,11 @@ Library for using [SNEX.io](http://snex.io) gamepads built on [Peer.js](http://p
 ### Using Node environment
 
 1) Install
-
-        yarn add snex
+```
+yarn add snex
+```
 
 2) Implement
-
 ```js
 const snex = require('snex');
 
@@ -37,8 +37,9 @@ snex.createSession()
 ### In Browser
 
 1) Install
-
-        <script src="http://snex.io/lib/latest.js"></script>
+```
+<script src="http://cdn.snex.io/snex.latest.min.js"></script>
+```
 
 2) Implement
 

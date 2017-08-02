@@ -3,8 +3,14 @@
   "version": "0.1.2",
   "description": "Library for listening to input from SNEX gamepads.",
   "license": "MIT",
+  "homepage": "http://snex.io",
   "main": "dist/snex.js",
   "repository": "https://github.com/snex-io/snex-lib",
+  "author": "Pontus Alexander (http://pomle.com)",
+  "contributors": [
+    "Michelle Bu",
+    "Eric Zhang"
+  ],
   "scripts": {
     "build": "webpack --progress --colors",
     "build:prod": "NODE_ENV=production yarn run build",

@@ -2331,6 +2331,15 @@ pbkdf2@^3.0.3:
     js-binarypack "0.0.9"
     reliable "git+https://github.com/michelle/reliable.git"
 
+"peerjs@https://github.com/snex-io/peerjs.git":
+  version "0.3.14"
+  uid "10529b6335f545e35219e231c75196e6c83ea577"
+  resolved "https://github.com/snex-io/peerjs.git#10529b6335f545e35219e231c75196e6c83ea577"
+  dependencies:
+    eventemitter3 "^0.1.5"
+    js-binarypack "0.0.9"
+    reliable "git+https://github.com/michelle/reliable.git"
+
 performance-now@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-0.2.0.tgz#33ef30c5c77d4ea21c5a53869d91b56d8f2555e5"

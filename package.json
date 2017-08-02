@@ -10,7 +10,7 @@
     "test": "mocha './src/**/*-test.js'"
   },
   "dependencies": {
-    "peerjs": "https://github.com/peers/peerjs.git"
+    "peerjs": "https://github.com/snex-io/peerjs.git"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",

@@ -20,6 +20,8 @@ snex.createSession()
 .then(session => {
 
     session.on('connection', conn => {
+        console.log('Player joined!');
+    
         conn.on('data', data => {
             if (data.state && data.key === 'A') {
                 console.log('User pressed "A"');
@@ -41,16 +43,18 @@ snex.createSession()
 <script src="https://cdn.snex.io/snex.latest.min.js"></script>
 ```
 
-2) Implement
+2) Implement.
 
 ```js
 window.snex.createSession()
 .then(session => {
 
     session.on('connection', conn => {
+        console.log('Player joined!');
+    
         conn.on('data', data => {
             if (data.state && data.key === 'A') {
-                console.log('User pressed "A"');
+                console.log('Player pressed "A"');
             }
         });
     });

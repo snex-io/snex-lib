@@ -5,7 +5,7 @@ Library for using [SNEX.io](http://snex.io) gamepads built on [Peer.js](http://p
 
 ## Usage
 
-### Using Node environment
+### Node environment
 
 1) Install
 ```bash
@@ -36,7 +36,7 @@ snex.createSession()
 });
 ```
 
-### In Browser
+### Browser
 
 1) Add the following snippet to your site.
 ```html

@@ -26,7 +26,7 @@ snex.createSession().then(session => {
         });
     });
 
-    return session.createURL('nes', 'http://localhost:8080');
+    return session.createURL('nes');
 })
 .then(desc => {
     console.log('Go to url to play', desc.url);
@@ -52,7 +52,7 @@ window.snex.createSession().then(session => {
         });
     });
 
-    return session.createURL('nes', 'http://localhost:8080');
+    return session.createURL('nes');
 })
 .then(desc => {
     console.log('Go to url to play', desc.url);

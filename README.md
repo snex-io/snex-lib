@@ -16,7 +16,7 @@ Library for using [SNEX.io](http://snex.io) gamepads built on [Peer.js](http://p
 ```js
 const snex = require('snex');
 
-snex.createSession(peer).then(session => {
+snex.createSession().then(session => {
 
     session.on('connection', conn => {
         conn.on('data', data => {
@@ -42,7 +42,7 @@ snex.createSession(peer).then(session => {
 2) Implement
 
 ```js
-window.snex.createSession(peer).then(session => {
+window.snex.createSession().then(session => {
 
     session.on('connection', conn => {
         conn.on('data', data => {

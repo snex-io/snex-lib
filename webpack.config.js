@@ -12,7 +12,7 @@ const config = {
     'snex': resolve('src', 'snex.js'),
   },
   output: {
-    path: resolve('dist'),
+    path: resolve('browser'),
   },
   module: {
     rules: [
@@ -32,12 +32,6 @@ const config = {
   },
   plugins: [],
 };
-
-const nodeConfig = Object.assign({}, config, {
-  output: Object.assign({}, config.output, {
-    filename: 'snex.js',
-  }),
-});
 
 const browserConfig = Object.assign({}, config, {
   output: Object.assign({}, config.output, {
@@ -75,7 +69,6 @@ const minifyConfigLatest = Object.assign({}, minifyConfig, {
 
 
 module.exports = [
-  nodeConfig,
   browserConfig,
   browserConfigLatest,
   minifyConfig,

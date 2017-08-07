@@ -1,6 +1,6 @@
 const expect = require('expect.js');
 const sinon = require('sinon');
-const {JSDOM} = require('jsdom');
+const {JSDOM} = require("jsdom");
 
 global.window = new JSDOM().window;
 

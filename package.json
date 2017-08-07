@@ -13,7 +13,7 @@
   ],
   "scripts": {
     "build:browser": "webpack --progress --colors",
-    "build:node": "babel ./src --out-dir ./dist",
+    "build:node": "babel ./src --out-dir ./dist && mocha tests/postbuild.js",
     "test": "mocha './src/**/*-test.js'"
   },
   "devDependencies": {

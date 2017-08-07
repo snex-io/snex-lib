@@ -13,6 +13,7 @@
   ],
   "scripts": {
     "build": "webpack --progress --colors",
+    "build:test": "mocha tests/postbuild.js",
     "test": "mocha './src/**/*-test.js'"
   },
   "devDependencies": {

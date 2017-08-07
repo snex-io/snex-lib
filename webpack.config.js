@@ -12,7 +12,7 @@ const config = {
     'snex': resolve('src', 'snex.js'),
   },
   output: {
-    path: resolve('dist'),
+    path: resolve('browser'),
   },
   module: {
     rules: [
@@ -35,7 +35,10 @@ const config = {
 
 const nodeConfig = Object.assign({}, config, {
   output: Object.assign({}, config.output, {
-    filename: 'snex.js',
+    path: resolve('dist'),
+    library: 'snex',
+    libraryTarget: 'commonjs2',
+    filename: `snex.js`,
   }),
 });
 

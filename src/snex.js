@@ -2,8 +2,8 @@ const EventEmitter = require('eventemitter3');
 const Peer = require('peerjs');
 const util = require('peerjs/lib/util');
 
-const API_URL = 'http://snex.io';
-const SIGNALING_SERVER = 'peer-exchange.snex.io:80';
+const API_URL = 'https://snex.io';
+const SIGNALING_SERVER = 'peer-secure.snex.io:443';
 
 const Controllers = require('./controllers');
 

@@ -13,7 +13,7 @@ describe('SNEX Lib', () => {
     });
 
     it('has expected API URL', () => {
-        expect(snex.API_URL).to.be('http://snex.io');
+        expect(snex.API_URL).to.be('https://snex.io');
     });
 
     it('exposes controller index', () => {
@@ -39,12 +39,12 @@ describe('SNEX Lib', () => {
     });
 
     it('has expected SIGNALING_HOST', () => {
-        expect(snex.SIGNALING_SERVER).to.be('peer-exchange.snex.io:80');
+        expect(snex.SIGNALING_SERVER).to.be('peer-secure.snex.io:443');
     });
 
     describe('#buildURL', () => {
         it('returns a URL given a controller type and id', () => {
-            expect(snex.buildURL('nes', '1r91j2/1125')).to.be('http://snex.io/nes?id=1r91j2%2F1125');
+            expect(snex.buildURL('nes', '1r91j2/1125')).to.be('https://snex.io/nes?id=1r91j2%2F1125');
         });
     });
 

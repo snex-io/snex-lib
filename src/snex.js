@@ -21,6 +21,10 @@ class Session extends EventEmitter
   }
 
   createURL(pad = 'nes', apiURL = API_URL) {
+    if (!this.peer.id) {
+      return Promise.reject(new Error('Session expired'));
+    }
+
     const request = new Request(apiURL + '/api/v1/session', {
       method: 'POST',
       headers: new Headers({

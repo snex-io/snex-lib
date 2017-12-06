@@ -1,3 +1,5 @@
+const EventEmitter = require('eventemitter3');
+
 const expect = require('expect.js');
 const sinon = require('sinon');
 const {JSDOM} = require("jsdom");
@@ -8,6 +10,16 @@ const snex = require('../snex');
 const Peer = require('peerjs');
 
 describe('SNEX Lib', () => {
+    class PeerMock extends EventEmitter {
+        constructor() {
+            super();
+
+            setTimeout(() => {
+                this.emit('open');
+            }, 0);
+        }
+    }
+
     it('exposes Peer.js', () => {
         expect(snex.Peer).to.be(Peer);
     });
@@ -48,17 +60,26 @@ describe('SNEX Lib', () => {
         });
     });
 
-    describe.skip('#createSession', () => {
+    describe('#createSession', () => {
+        let session, peerMock;
+
         beforeEach(() => {
-            sinon.stub(snex, 'createPeer');
+            peerMock = new PeerMock();
+            return snex.createSession(peerMock).then(s => session = s);
         });
 
-        afterEach(() => {
-            snex.createPeer.restore();
+        it('resolves a session', () => {
+            expect(session).to.be.ok();
         });
 
-        it('uses expected default API_URL', () => {
-            snex.createSession();
+        describe('#createURL', () => {
+            it('returns rejected promise when id not set', () => {
+                peerMock.id = undefined;
+                return session.createURL().catch(error => {
+                    expect(error).to.be.an(Error);
+                    expect(error.message).to.equal('Session expired');
+                });
+            });
         });
     });
 });

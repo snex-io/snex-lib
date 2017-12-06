@@ -9,7 +9,7 @@ Library for using [SNEX.io](https://snex.io) gamepads built on [Peer.js](http://
 
 1) Install
 ```bash
-yarn add snex
+npm install snex
 ```
 
 2) Implement
@@ -21,7 +21,7 @@ snex.createSession()
 
     session.on('connection', conn => {
         console.log('Player joined!');
-    
+
         conn.on('data', data => {
             if (data.state && data.key === 'A') {
                 console.log('User pressed "A"');
@@ -51,7 +51,7 @@ window.snex.createSession()
 
     session.on('connection', conn => {
         console.log('Player joined!');
-    
+
         conn.on('data', data => {
             if (data.state && data.key === 'A') {
                 console.log('Player pressed "A"');

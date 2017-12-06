@@ -13,5 +13,6 @@ deploy:
   provider: npm
   email: "pontus.alexander@gmail.com"
   api_key: $NPM_API_KEY
+  skip_cleanup: true
   on:
     tags: true

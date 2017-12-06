@@ -14,7 +14,7 @@
   "scripts": {
     "build": "webpack --progress --colors",
     "build:test": "mocha tests/postbuild.js",
-    "prepublish": "./prepubli.sh",
+    "prepublish": "/usr/bin/env bash ./prepubli.sh",
     "test": "mocha './src/**/*-test.js'"
   },
   "devDependencies": {

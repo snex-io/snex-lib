@@ -2323,17 +2323,8 @@ pbkdf2@^3.0.3:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-"peerjs@https://github.com/peers/peerjs.git":
-  version "0.3.14"
-  resolved "https://github.com/peers/peerjs.git#10529b6335f545e35219e231c75196e6c83ea577"
-  dependencies:
-    eventemitter3 "^0.1.5"
-    js-binarypack "0.0.9"
-    reliable "git+https://github.com/michelle/reliable.git"
-
 "peerjs@https://github.com/snex-io/peerjs.git":
   version "0.3.14"
-  uid "10529b6335f545e35219e231c75196e6c83ea577"
   resolved "https://github.com/snex-io/peerjs.git#10529b6335f545e35219e231c75196e6c83ea577"
   dependencies:
     eventemitter3 "^0.1.5"

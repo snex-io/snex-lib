@@ -1,11 +1,21 @@
 const path = require('path');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const {version} = require('./package.json');
+const package = require('./package.json');
+
+function getVersion() {
+  if (process.env.TRAVIS_TAG) {
+    return process.env.TRAVIS_TAG;
+  }
+
+  return 'snapshot';
+}
 
 function resolve(...args) {
   return path.resolve(__dirname, ...args);
 }
+
+const version = getVersion();
 
 const config = {
   entry: {

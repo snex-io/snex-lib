@@ -18,6 +18,10 @@ class Session extends EventEmitter
     peer.on('connection', conn => {
       this.emit('connection', conn);
     });
+
+    peer.on('disconnected', () => {
+      this.emit('disconnected');
+    });
   }
 
   createURL(pad = 'nes', apiURL = API_URL) {

@@ -14,4 +14,4 @@ deploy:
   email: "pontus.alexander@gmail.com"
   api_key: $NPM_API_KEY
   on:
-    tags
+    tags: true

@@ -71,6 +71,30 @@ describe('SNEX Lib', () => {
         it('resolves a session', () => {
             expect(session).to.be.ok();
         });
+    });
+
+    describe('Session', () => {
+        let session, peerMock;
+
+        beforeEach(() => {
+            peerMock = new PeerMock();
+            return snex.createSession(peerMock).then(s => session = s);
+        });
+
+        it(`emits "connection" event when Peer emits`, () => {
+            const spy = sinon.spy();
+            session.on('connection', spy);
+            peerMock.emit('connection', 'apa');
+            expect(spy.callCount).to.be(1);
+            expect(spy.lastCall.args).to.eql(['apa']);
+        });
+
+        it(`emits "disconnected" event when Peer disconnects`, () => {
+            const spy = sinon.spy();
+            session.on('disconnected', spy);
+            peerMock.emit('disconnected');
+            expect(spy.callCount).to.be(1);
+        });
 
         describe('#createURL', () => {
             it('returns rejected promise when id not set', () => {

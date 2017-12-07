@@ -66,11 +66,6 @@ const browserConfigLatest = Object.assign({}, browserConfig, {
   }),
 });
 
-browserConfigLatest.plugins = [new CopyWebpackPlugin([{
-  from: resolve('src', 'index.html'),
-}])];
-
-
 const minifyConfig = Object.assign({}, browserConfig, {
   output: Object.assign({}, browserConfig.output, {
     filename: `snex.${version}.min.js`,

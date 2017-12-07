@@ -12,9 +12,19 @@ script:
 - yarn run build:test
 
 deploy:
-  provider: npm
-  email: "pontus.alexander@gmail.com"
-  api_key: $NPM_API_KEY
-  skip_cleanup: true
-  on:
-    tags: true
+  - provider: npm
+    email: "pontus.alexander@gmail.com"
+    api_key: $NPM_API_KEY
+    skip_cleanup: true
+    on:
+      tags: true
+
+  - provider: gcs
+    skip_cleanup: true
+    access_key_id: $GCS_ACCESS_KEY_ID
+    secret_access_key: $GCS_SECRET_ACCESS_KEY
+    bucket: "cdn.snex.io"
+    acl: public-read
+    local-dir: browser
+    on:
+      tags: true

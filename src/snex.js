@@ -35,7 +35,7 @@ class Session extends EventEmitter
         'Content-Type': 'application/json'
       }),
       body: JSON.stringify({
-        id: this.peer.id,
+        id: this.id,
         type: pad,
         key: 'deprecated',
       }),

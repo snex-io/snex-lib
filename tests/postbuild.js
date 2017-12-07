@@ -4,7 +4,8 @@ const {JSDOM} = require('jsdom');
 
 global.window = new JSDOM().window;
 
-const snex = require('../dist/snex');
+const package = require('../package.json');
+const snex = require('../' + package.main);
 
 describe('SNEX Lib', () => {
     it('is a module', () => {

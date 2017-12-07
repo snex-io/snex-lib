@@ -60,17 +60,17 @@ const browserConfig = Object.assign({}, config, {
   }),
 });
 
-const minifyConfig = Object.assign({}, browserConfig, {
+const minifyBrowserConfig = Object.assign({}, browserConfig, {
   output: Object.assign({}, browserConfig.output, {
     filename: `snex.${version}.min.js`,
   }),
 });
 
-minifyConfig.plugins = [new webpack.optimize.UglifyJsPlugin()];
+minifyBrowserConfig.plugins = [new webpack.optimize.UglifyJsPlugin()];
 
 
 module.exports = [
   nodeConfig,
   browserConfig,
-  minifyConfig,
+  minifyBrowserConfig,
 ];

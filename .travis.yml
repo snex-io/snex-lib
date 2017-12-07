@@ -8,6 +8,8 @@ env:
 
 script:
 - yarn test
+- yarn run build
+- yarn run build:test
 
 deploy:
   provider: npm

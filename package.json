@@ -25,7 +25,7 @@
     "expect.js": "^0.3.1",
     "jsdom": "^11.1.0",
     "mocha": "^3.5.0",
-    "peerjs": "https://github.com/snex-io/peerjs.git",
+    "peerjs": "git+https://git@github.com/snex-io/peerjs.git#0.3.15",
     "sinon": "^2.4.1",
     "webpack": "^3.4.1"
   }

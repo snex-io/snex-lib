@@ -73,6 +73,37 @@ describe('SNEX Lib', () => {
         });
     });
 
+    describe('#joinSession', () => {
+        let peerMock, connMock;
+
+        beforeEach(() => {
+            connMock = new EventEmitter();
+
+            peerMock = new PeerMock();
+            peerMock.connect = sinon.spy(() => connMock);
+            promise = snex.joinSession('my-id', peerMock);
+        });
+
+        it('returns a promise', () => {
+            expect(promise).to.be.a(Promise);
+        })
+
+        it('calls Peer.connect with serialization set to json', () => {
+            expect(peerMock.connect.callCount).to.be(1);
+            expect(peerMock.connect.lastCall.args[0]).to.eql('my-id');
+            expect(peerMock.connect.lastCall.args[1]).to.eql({
+                serialization: 'json',
+            });
+        });
+
+        it('resolves a connection', () => {
+            connMock.emit('open');
+            return promise.then(conn => {
+                expect(conn).to.be(connMock);
+            });
+        });
+    });
+
     describe('Session', () => {
         let session, peerMock;
 

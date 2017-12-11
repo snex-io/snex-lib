@@ -68,7 +68,10 @@ function joinSession(id, peer = createPeer()) {
   return new Promise((resolve, reject) => {
     peer.on('error', reject);
 
-    const conn = peer.connect(id)
+    const conn = peer.connect(id, {
+      serialization: 'json',
+    });
+
     conn.on('open', () => {
       resolve(conn);
     });

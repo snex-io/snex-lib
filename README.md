@@ -1,6 +1,6 @@
 # SNEX
 
-Library for using [SNEX.io](https://snex.io) gamepads built on [Peer.js](http://peerjs.com/).
+Library for using [SNEX.io](https://snex.io) gamepads.
 
 
 ## Usage

@@ -12,21 +12,23 @@
     "Eric Zhang"
   ],
   "scripts": {
-    "build": "webpack --progress --colors",
+    "build": "rollup -c",
     "build:test": "mocha tests/postbuild.js",
     "prepublishOnly": "/usr/bin/env bash ./prepubli.sh",
     "test": "mocha './src/**/*-test.js'"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",
-    "babel-loader": "^7.1.1",
     "babel-preset-env": "^1.6.0",
-    "copy-webpack-plugin": "^4.0.1",
     "expect.js": "^0.3.1",
     "jsdom": "^11.1.0",
     "mocha": "^3.5.0",
     "peerjs": "git+https://git@github.com/snex-io/peerjs.git#0.3.15",
-    "sinon": "^2.4.1",
-    "webpack": "^3.4.1"
+    "rollup": "^0.52.2",
+    "rollup-plugin-babel": "^3.0.3",
+    "rollup-plugin-commonjs": "^8.2.6",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-uglify": "^2.0.1",
+    "sinon": "^2.4.1"
   }
 }

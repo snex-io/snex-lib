@@ -36,8 +36,8 @@ export default [
         name: 'snex',
         plugins: [
             resolve(),
-            commonjs(),
             babel(),
+            commonjs(),
             uglify(),
         ]
     },
@@ -47,8 +47,10 @@ export default [
         output: [
             { file: `dist/snex.js`, format: 'cjs' },
         ],
+        external: ['eventemitter3'],
         plugins: [
             resolve(),
+            babel(),
             commonjs(),
         ]
     }

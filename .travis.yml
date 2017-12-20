@@ -7,9 +7,9 @@ env:
     secure: "qFd7Fd4nNVl58aEA469kfvSDmlcGIMyFDAbP7q5mMwF2E/kC3Xs2SwdxTQ5nb/z9SWZ4X+0ANHaJNCCBAjczgJhw8t2XDCQybecYPpjRO8xAxp9F/FGjcJI3isrwmjgB2xpFXj3BpIGI/WvDum9Sj+iqhxOy5nBQ/54cbWoxcV+4Sn2lZ0Of9ogEfFmUFjor8hohm8EiygRegOXKWuEXKxrAQGguTmDaftda+z4nRaxTAWMH3UXqrG0LvNvT6q+8FYRVFeBn/rrFCKnlCGMlDpSVB4eZ5tt0jVxx6zsnneO3FmdoZWYrGgYnuTkdltb6uGqJAlNXC7sSy/ixWMZo8BrmgxisveVJTtYXUGhcfkHTOG5fPkJr7r4EazMBZDf7Dah6pJMEwuPcU4OxduthhZ31mf2St7A8OtntegB0A2pV4aIJafs8V5bLQal0YNPXeqKgQ7tOliOAh5wglHf6/f75Ev0OiL8qwB6G/lKUsgxBpNBSgGWrLoorPSQvSzZDLI7npaaTQ6FNocG62c+BeC7K8pyLZQuLs6Ag45j/F0A+CNb+nbCNewKnVbKgynx6IikW4bz3nhfzk9VhkNYue5kVWSohgIln5bZFgIIrHZ0VI0vThcx4dqBhIOPlHzSB3c2Labo/h6GU2yW+71Dwj3IUvYn8t/Wul+e6s89sdW0="
 
 script:
-- npm test
-- npm run build
-- npm run build:test
+- yarn test
+- yarn run build
+- yarn run build:test
 
 deploy:
   - provider: npm

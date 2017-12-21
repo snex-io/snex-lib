@@ -16,13 +16,20 @@ const VERSION = getVersion();
 export default [
     {
         input: 'src/snex.js',
-        output: {
-            file: `browser/snex.${VERSION}.js`,
-            format: 'umd'
-        },
+        output: [
+            {
+                file: `browser/snex.${VERSION}.js`,
+                format: 'umd'
+            },
+            {
+                file: `dist/snex.js`,
+                format: 'cjs'
+            },
+        ],
         name: 'snex',
         plugins: [
             resolve(),
+            babel(),
             commonjs(),
         ]
     },
@@ -41,17 +48,4 @@ export default [
             uglify(),
         ]
     },
-
-    {
-        input: 'src/snex.js',
-        output: [
-            { file: `dist/snex.js`, format: 'cjs' },
-        ],
-        external: ['eventemitter3'],
-        plugins: [
-            resolve(),
-            babel(),
-            commonjs(),
-        ]
-    }
 ];

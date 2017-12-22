@@ -13,6 +13,16 @@ function getVersion() {
 
 const VERSION = getVersion();
 
+const BABEL_CONF = {
+  babelrc: false,
+  presets: [
+    [
+      "env",
+      {"modules": false}
+    ]
+  ]
+};
+
 export default [
     {
         input: 'src/snex.js',
@@ -29,7 +39,7 @@ export default [
         name: 'snex',
         plugins: [
             resolve(),
-            babel(),
+            babel(BABEL_CONF),
             commonjs(),
         ]
     },
@@ -43,7 +53,7 @@ export default [
         name: 'snex',
         plugins: [
             resolve(),
-            babel(),
+            babel(BABEL_CONF),
             commonjs(),
             uglify(),
         ]

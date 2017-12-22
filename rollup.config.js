@@ -20,6 +20,9 @@ const BABEL_CONF = {
       "env",
       {"modules": false}
     ]
+  ],
+  plugins: [
+    "external-helpers"
   ]
 };
 

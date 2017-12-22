@@ -1,25 +1,8 @@
-import {Circle} from './area.js';
+import {createAreas} from './area.js';
 import {createEventEmitter} from './event.js';
 import {createTouchHandler, createMouseHandler} from './handler.js';
 import {vibe} from './vibrate.js';
 
-
-function createAreas(touchables) {
-  const areas = [];
-
-  return [...touchables].map(touchable => {
-    const [, type, name] = touchable.id.split('-');
-    const rect = touchable.getBoundingClientRect();
-
-    const area = new Circle(
-      rect.left + rect.width / 2,
-      rect.top + rect.height / 2,
-      rect.width * 0.5,
-      name);
-
-    return area;
-  });
-}
 
 export function createSensor(svg) {
   let preferTouch = false;

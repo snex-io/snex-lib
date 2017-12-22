@@ -15,14 +15,15 @@
     "build": "rollup -c",
     "build:test": "mocha 'tests/postbuild/**.test.js'",
     "prepublishOnly": "/usr/bin/env bash ./prepubli.sh",
-    "test": "mocha './src/**/*-test.js'"
+    "test": "jest"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",
+    "babel-jest": "^22.0.4",
     "babel-preset-env": "^1.6.0",
     "expect.js": "^0.3.1",
+    "jest": "^22.0.4",
     "jsdom": "^11.1.0",
-    "mocha": "^3.5.0",
     "peerjs": "git+https://git@github.com/snex-io/peerjs.git#0.3.15",
     "rollup": "^0.52.2",
     "rollup-plugin-babel": "^3.0.3",

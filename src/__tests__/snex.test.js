@@ -23,8 +23,8 @@ describe('SNEX Lib', () => {
         expect(snex.Peer).toBe(Peer);
     });
 
-    it('has expected API URL', () => {
-        expect(snex.API_URL).toBe('https://snex.io');
+    it('does not expose API URL', () => {
+        expect(snex.API_URL).toBe(undefined);
     });
 
     it('exposes controller index', () => {
@@ -53,13 +53,23 @@ describe('SNEX Lib', () => {
         });
     });
 
-    it('has expected SIGNALING_HOST', () => {
-        expect(snex.SIGNALING_SERVER).toBe('peer-secure.snex.io:443');
+    it('does not expose SIGNALING_HOST', () => {
+        expect(snex.SIGNALING_SERVER).toBe(undefined);
     });
 
     describe('#buildURL', () => {
         it('returns a URL given a controller type and id', () => {
             expect(snex.buildURL('nes', '1r91j2/1125')).toBe('https://snex.io/nes?id=1r91j2%2F1125');
+        });
+    });
+
+    describe('#createPeer', () => {
+        it('returns instance of Peer with expected peer exchange url', () => {
+            const peer = snex.createPeer();
+            expect(peer.options.host).toBe('peer-secure.snex.io');
+            expect(peer.options.port).toBe('443');
+            expect(peer.options.secure).toBe(true);
+            expect(peer.options.path).toBe('/');
         });
     });
 

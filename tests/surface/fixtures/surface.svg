@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1000px" height="1000px" viewBox="0 0 1000 1000" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <circle id="snex-button-A" fill="#f00" cx="150" cy="150" r="50"></circle>
+    <circle id="snex-button-B" fill="#ff0" cx="250" cy="150" r="50"></circle>
+</svg>

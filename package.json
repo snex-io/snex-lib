@@ -13,9 +13,9 @@
   ],
   "scripts": {
     "build": "rollup -c",
-    "build:test": "jest tests/postbuild/",
     "prepublishOnly": "/usr/bin/env bash ./prepubli.sh",
-    "test": "jest"
+    "test": "jest src/",
+    "test:postbuild": "jest tests/postbuild/"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",

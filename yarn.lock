@@ -1884,10 +1884,6 @@ jest@^22.0.4:
   dependencies:
     jest-cli "^22.0.4"
 
-js-binarypack@0.0.9:
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/js-binarypack/-/js-binarypack-0.0.9.tgz#454243d3de212961cc1514a2f119dec2faf64035"
-
 js-tokens@^3.0.0, js-tokens@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-3.0.2.tgz#9866df395102130e38f7f996bceb65443209c25b"
@@ -2376,13 +2372,11 @@ path-type@^1.0.0:
     pify "^2.0.0"
     pinkie-promise "^2.0.0"
 
-"peerjs@git+https://git@github.com/snex-io/peerjs.git#0.3.15":
+"peerjs@git+https://git@github.com/snex-io/peerjs.git#6e86590b24198a58fec37f43fca544693d4c1f43":
   version "0.3.15"
-  resolved "git+https://git@github.com/snex-io/peerjs.git#fd7191b191e3794f8d034af8ccefef154c8359c7"
+  resolved "git+https://git@github.com/snex-io/peerjs.git#6e86590b24198a58fec37f43fca544693d4c1f43"
   dependencies:
     eventemitter3 "^0.1.5"
-    js-binarypack "0.0.9"
-    reliable "git+https://github.com/michelle/reliable.git"
 
 performance-now@^0.2.0:
   version "0.2.0"
@@ -2541,12 +2535,6 @@ regjsparser@^0.1.4:
   resolved "https://registry.yarnpkg.com/regjsparser/-/regjsparser-0.1.5.tgz#7ee8f84dc6fa792d3fd0ae228d24bd949ead205c"
   dependencies:
     jsesc "~0.5.0"
-
-"reliable@git+https://github.com/michelle/reliable.git":
-  version "0.1.0"
-  resolved "git+https://github.com/michelle/reliable.git#f09ba29d57a05beaa07990171f3fe7b746587aaa"
-  dependencies:
-    js-binarypack "0.0.9"
 
 remove-trailing-separator@^1.0.1:
   version "1.1.0"

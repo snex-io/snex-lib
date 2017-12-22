@@ -1,5 +1,4 @@
-dist/index.html
 node_modules/
 src/
-webpack.config.js
+rollup.config.js
 yarn.lock

@@ -13,7 +13,7 @@
   ],
   "scripts": {
     "build": "rollup -c",
-    "build:test": "mocha 'tests/postbuild/**.test.js'",
+    "build:test": "jest tests/postbuild/",
     "prepublishOnly": "/usr/bin/env bash ./prepubli.sh",
     "test": "jest"
   },

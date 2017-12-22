@@ -36,6 +36,10 @@ describe('SNEX Lib', () => {
             expect(snex.joinSession).toBeInstanceOf(Function);
         });
 
+        it('exports createSensor()', () => {
+            expect(snex.createSensor).toBeInstanceOf(Function);
+        });
+
         it('exports isSupported()', () => {
             expect(snex.isSupported).toBeInstanceOf(Function);
         });

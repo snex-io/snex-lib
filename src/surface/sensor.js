@@ -22,7 +22,7 @@ function createAreas(touchables) {
 }
 
 export function createSensor(svg) {
-  let useTouch = null;
+  let preferTouch = false;
 
   const surface = svg.contentDocument;
 
@@ -63,13 +63,15 @@ export function createSensor(svg) {
   }
 
   function onMouse(event) {
-    if (!useTouch) {
-      handleMouse(event);
+    if (preferTouch) {
+      return;
     }
+
+    handleMouse(event);
   }
 
   function onTouch(event) {
-    useTouch = true;
+    preferTouch = true;
     handleTouch(event);
   }
 

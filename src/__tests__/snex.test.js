@@ -31,6 +31,10 @@ describe('SNEX Lib', () => {
         expect(snex.Controllers).toBeInstanceOf(Object);
     });
 
+    it('exposes createSensor', () => {
+        expect(snex.createSensor).toBeInstanceOf(Function);
+    });
+
     describe('Controller Index', () => {
         it('has NES', () => {
             expect(snex.Controllers.nes.title).toBe('Nintendo 8-bit');

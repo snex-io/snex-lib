@@ -16,7 +16,7 @@ describe('SNEX Lib', () => {
             expect(snex.API_URL).toBe(undefined);
         });
 
-        it('exports SIGNALING_SERVER', () => {
+        it('does not export SIGNALING_SERVER', () => {
             expect(snex.SIGNALING_SERVER).toBe(undefined);
         });
 

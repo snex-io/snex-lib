@@ -26,7 +26,7 @@ export function createSensor(svg) {
 
   const surface = svg.contentDocument;
 
-  let areas, keys, handleMouse, handleTouch;
+  let areas, handleMouse, handleTouch;
   const states = Object.create(null);
 
   const {listen, emit} = createEventEmitter();
@@ -35,10 +35,12 @@ export function createSensor(svg) {
     const touchables = surface.querySelectorAll('[id^=snex-]');
     areas = createAreas(touchables);
 
+    for (const area of areas) {
+      states[area.id] = false;
+    }
+
     handleMouse = createMouseHandler(areas, handleKey);
     handleTouch = createTouchHandler(areas, handleKey);
-
-    keys = areas.map(area => area.id);
   }
 
   function handleKey(key, state) {

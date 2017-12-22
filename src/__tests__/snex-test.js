@@ -74,7 +74,7 @@ describe('SNEX Lib', () => {
     });
 
     describe('#joinSession', () => {
-        let peerMock, connMock;
+        let peerMock, connMock, promise;
 
         beforeEach(() => {
             connMock = new EventEmitter();

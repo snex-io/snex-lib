@@ -1,5 +1,5 @@
 import EventEmitter from 'eventemitter3';
-import {API_URL} from '../snex.js';
+import {API_URL} from '.';
 
 export class Session extends EventEmitter
 {

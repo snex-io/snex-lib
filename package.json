@@ -24,7 +24,7 @@
     "babel-preset-env": "^1.6.0",
     "jest": "^22.0.4",
     "jsdom": "^11.1.0",
-    "peerjs": "git+https://git@github.com/snex-io/peerjs.git#6e86590b24198a58fec37f43fca544693d4c1f43",
+    "peerjs": "git+https://git@github.com/snex-io/peerjs.git#550a28ef91a5cda5f6359ffae4080672e8e5e8bb",
     "rollup": "^0.52.2",
     "rollup-plugin-babel": "^3.0.3",
     "rollup-plugin-commonjs": "^8.2.6",

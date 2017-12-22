@@ -12,12 +12,12 @@ describe('SNEX Lib', () => {
     });
 
     describe('module', () => {
-        it('exports API_URL', () => {
-            expect(snex.API_URL).toBe('https://snex.io');
+        it('does not export API_URL', () => {
+            expect(snex.API_URL).toBe(undefined);
         });
 
         it('exports SIGNALING_SERVER', () => {
-            expect(snex.SIGNALING_SERVER).toBe('peer-secure.snex.io:443');
+            expect(snex.SIGNALING_SERVER).toBe(undefined);
         });
 
         it('exports Controllers', () => {

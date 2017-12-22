@@ -1075,10 +1075,6 @@ expand-range@^1.8.1:
   dependencies:
     fill-range "^2.1.0"
 
-expect.js@^0.3.1:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/expect.js/-/expect.js-0.3.1.tgz#b0a59a0d2eff5437544ebf0ceaa6015841d09b5b"
-
 expect@^22.0.3:
   version "22.0.3"
   resolved "https://registry.yarnpkg.com/expect/-/expect-22.0.3.tgz#bb486de7d41bf3eb60d3b16dfd1c158a4d91ddfa"

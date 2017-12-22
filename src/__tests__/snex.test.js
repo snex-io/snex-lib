@@ -1,6 +1,5 @@
 const EventEmitter = require('eventemitter3');
 
-const expect = require('expect.js');
 const sinon = require('sinon');
 const {JSDOM} = require("jsdom");
 
@@ -21,42 +20,42 @@ describe('SNEX Lib', () => {
     }
 
     it('exposes Peer.js', () => {
-        expect(snex.Peer).to.be(Peer);
+        expect(snex.Peer).toBe(Peer);
     });
 
     it('has expected API URL', () => {
-        expect(snex.API_URL).to.be('https://snex.io');
+        expect(snex.API_URL).toBe('https://snex.io');
     });
 
     it('exposes controller index', () => {
-        expect(snex.Controllers).to.be.an(Object);
+        expect(snex.Controllers).toBeInstanceOf(Object);
     });
 
     describe('Controller Index', () => {
         it('has NES', () => {
-            expect(snex.Controllers.nes.title).to.be('Nintendo 8-bit');
+            expect(snex.Controllers.nes.title).toBe('Nintendo 8-bit');
         });
 
         it('has SNES', () => {
-            expect(snex.Controllers.snes.title).to.be('Super Famicom');
+            expect(snex.Controllers.snes.title).toBe('Super Famicom');
         });
 
         it('has US SNES', () => {
-            expect(snex.Controllers['snes-us'].title).to.be('Super Nintendo');
+            expect(snex.Controllers['snes-us'].title).toBe('Super Nintendo');
         });
 
         it('has Genesis', () => {
-            expect(snex.Controllers['genesis'].title).to.be('Sega Genesis');
+            expect(snex.Controllers['genesis'].title).toBe('Sega Genesis');
         });
     });
 
     it('has expected SIGNALING_HOST', () => {
-        expect(snex.SIGNALING_SERVER).to.be('peer-secure.snex.io:443');
+        expect(snex.SIGNALING_SERVER).toBe('peer-secure.snex.io:443');
     });
 
     describe('#buildURL', () => {
         it('returns a URL given a controller type and id', () => {
-            expect(snex.buildURL('nes', '1r91j2/1125')).to.be('https://snex.io/nes?id=1r91j2%2F1125');
+            expect(snex.buildURL('nes', '1r91j2/1125')).toBe('https://snex.io/nes?id=1r91j2%2F1125');
         });
     });
 
@@ -69,7 +68,7 @@ describe('SNEX Lib', () => {
         });
 
         it('resolves a session', () => {
-            expect(session).to.be.ok();
+            expect(session).toBeTruthy();
         });
     });
 
@@ -85,13 +84,13 @@ describe('SNEX Lib', () => {
         });
 
         it('returns a promise', () => {
-            expect(promise).to.be.a(Promise);
+            expect(promise).toBeInstanceOf(Promise);
         })
 
         it('calls Peer.connect with serialization set to json', () => {
-            expect(peerMock.connect.callCount).to.be(1);
-            expect(peerMock.connect.lastCall.args[0]).to.eql('my-id');
-            expect(peerMock.connect.lastCall.args[1]).to.eql({
+            expect(peerMock.connect.callCount).toBe(1);
+            expect(peerMock.connect.lastCall.args[0]).toEqual('my-id');
+            expect(peerMock.connect.lastCall.args[1]).toEqual({
                 serialization: 'json',
             });
         });
@@ -99,7 +98,7 @@ describe('SNEX Lib', () => {
         it('resolves a connection', () => {
             connMock.emit('open');
             return promise.then(conn => {
-                expect(conn).to.be(connMock);
+                expect(conn).toBe(connMock);
             });
         });
     });
@@ -116,23 +115,23 @@ describe('SNEX Lib', () => {
             const spy = sinon.spy();
             session.on('connection', spy);
             peerMock.emit('connection', 'apa');
-            expect(spy.callCount).to.be(1);
-            expect(spy.lastCall.args).to.eql(['apa']);
+            expect(spy.callCount).toBe(1);
+            expect(spy.lastCall.args).toEqual(['apa']);
         });
 
         it(`emits "disconnected" event when Peer disconnects`, () => {
             const spy = sinon.spy();
             session.on('disconnected', spy);
             peerMock.emit('disconnected');
-            expect(spy.callCount).to.be(1);
+            expect(spy.callCount).toBe(1);
         });
 
         describe('#createURL', () => {
             it('returns rejected promise when id not set', () => {
                 peerMock.id = undefined;
                 return session.createURL().catch(error => {
-                    expect(error).to.be.an(Error);
-                    expect(error.message).to.equal('Session expired');
+                    expect(error).toBeInstanceOf(Error);
+                    expect(error.message).toEqual('Session expired');
                 });
             });
         });

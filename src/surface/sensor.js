@@ -21,7 +21,7 @@ export function createSensor(svg) {
   function handleKey(key, state) {
     const payload = {
       key,
-      state: state ? 1 : 0,
+      state,
     };
 
     emit(payload);

@@ -12,7 +12,7 @@ window.addEventListener('load', function() {
   const controller = document.getElementById('controller');
   const sensor = snex.createSensor(controller);
   sensor.listen(data => {
-    console.log(data);
+    console.log(JSON.stringify(data), data);
   });
 });
 

@@ -2,10 +2,16 @@ import {Circle} from './shape.js';
 import {Vec2} from './math.js';
 import {vibe} from './vibrate.js';
 
-export class Button {
+class Area {
   constructor(shape, id = null) {
     this.shape = shape;
     this.id = id;
+  }
+}
+
+export class Button extends Area{
+  constructor(shape, id) {
+    super(shape, id);
     this.state = false;
   }
 
@@ -33,12 +39,7 @@ export class Button {
   }
 }
 
-export class Axis {
-  constructor(shape, id = null) {
-    this.shape = shape;
-    this.id = id;
-  }
-
+export class Axis extends Area {
   onTouches (touches, callback) {
     for (const touch of touches) {
       if (!this.shape.intersects(touch)) {
@@ -50,6 +51,11 @@ export class Axis {
         const pos = new Vec2(
           (touch.pos.x - this.shape.pos.x) / size,
           (touch.pos.y - this.shape.pos.y) / size);
+        callback(pos);
+      } else if (this.shape.size) {
+        const pos = new Vec2(
+          (touch.pos.x - this.shape.pos.x) / this.shape.size.x,
+          (touch.pos.y - this.shape.pos.y) / this.shape.size.y);
         callback(pos);
       }
     }

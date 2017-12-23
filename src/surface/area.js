@@ -1,20 +1,20 @@
 import {Vec2} from './math.js';
 
 export function createAreas(touchables) {
-  const areas = [];
+  return [...touchables].map(parseTag);
+}
 
-  return [...touchables].map(touchable => {
-    const [, type, name] = touchable.id.split('-');
-    const rect = touchable.getBoundingClientRect();
+function parseTag(tag) {
+  const [, type, name] = tag.id.split('-');
+  const rect = tag.getBoundingClientRect();
 
-    const area = new Circle(
-      rect.left + rect.width / 2,
-      rect.top + rect.height / 2,
-      rect.width * 0.5,
-      name);
+  const area = new Circle(
+    rect.left + rect.width / 2,
+    rect.top + rect.height / 2,
+    rect.width * 0.5,
+    name);
 
-    return area;
-  });
+  return area;
 }
 
 export class Circle {

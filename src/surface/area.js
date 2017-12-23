@@ -40,24 +40,30 @@ export class Button extends Area{
 }
 
 export class Axis extends Area {
-  onTouches (touches, callback) {
-    for (const touch of touches) {
-      if (!this.shape.intersects(touch)) {
-        continue;
-      }
+  constructor(shape, id) {
+    super(shape, id);
+    this.last = new Vec2(0, 0);
+  }
 
-      if (this.shape.radius) {
-        const size = this.shape.radius;
-        const pos = new Vec2(
-          (touch.pos.x - this.shape.pos.x) / size,
-          (touch.pos.y - this.shape.pos.y) / size);
-        callback(pos);
-      } else if (this.shape.size) {
-        const pos = new Vec2(
-          (touch.pos.x - this.shape.pos.x) / this.shape.size.x / 0.5,
-          (touch.pos.y - this.shape.pos.y) / this.shape.size.y / -0.5);
-        callback(pos);
+  onTouches (touches, callback) {
+    const pos = new Vec2(0, 0);
+    for (const touch of touches) {
+      if (this.shape.intersects(touch)) {
+        if (this.shape.radius) {
+          const size = this.shape.radius;
+          pos.x = (touch.pos.x - this.shape.pos.x) / size;
+          pos.y = (touch.pos.y - this.shape.pos.y) / size;
+        } else if (this.shape.size) {
+          pos.x = (touch.pos.x - this.shape.pos.x) / this.shape.size.x / 0.5;
+          pos.y = (touch.pos.y - this.shape.pos.y) / this.shape.size.y / -0.5;
+        }
+        break;
       }
+    }
+
+    if (!this.last.equals(pos)) {
+      this.last.copy(pos);
+      callback(pos);
     }
   }
 }

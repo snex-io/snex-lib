@@ -1,4 +1,4 @@
-import {createAreas} from './area.js';
+import {createAreas} from './parse.js';
 import {createEventEmitter} from './event.js';
 import {createEventHandler} from './handler.js';
 import {vibe} from './vibrate.js';

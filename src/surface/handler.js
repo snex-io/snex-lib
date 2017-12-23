@@ -1,4 +1,4 @@
-import {Circle as Touch} from './area.js';
+import {Circle as Touch} from './shape.js';
 
 const TOUCH_RADIUS = 12;
 

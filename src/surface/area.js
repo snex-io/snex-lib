@@ -1,5 +1,4 @@
-import {Vec2} from './math.js';
-import {circlesIntersect} from './geometry.js';
+import {Circle} from './shape.js';
 
 export function createAreas(touchables) {
   return [...touchables].map(parseTag);
@@ -19,21 +18,20 @@ function parseCircle(tag) {
   const [, type, name] = tag.id.split('-');
   const rect = tag.getBoundingClientRect();
 
-  const area = new Circle(
+  const shape = new Circle(
     rect.left + rect.width / 2,
     rect.top + rect.height / 2,
-    rect.width * 0.5,
-    name);
+    rect.width * 0.5);
+
+  const area = new Button(shape, name);
 
   return area;
 }
 
-export class Circle {
-  constructor(x, y, r, id = null) {
+class Button {
+  constructor(shape, id = null) {
+    this.shape = shape;
     this.id = id;
-    this.pos = new Vec2(x, y);
-    this.radius = r;
-
     this.state = false;
   }
 
@@ -41,10 +39,7 @@ export class Circle {
     let state = false;
 
     for (const touch of touches) {
-      const intersects = circlesIntersect(
-        this.radius, touch.radius,
-        this.pos.x, this.pos.y,
-        touch.pos.x, touch.pos.y);
+      const intersects = this.shape.intersects(touch);
 
       if (intersects) {
         state = true;

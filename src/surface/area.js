@@ -9,6 +9,9 @@ function parseTag(tag) {
     case 'circle':
       return parseCircle(tag);
   }
+
+  console.error('Unrecognized tag', tag);
+  throw new TypeError('Can not parse tag');
 }
 
 function parseCircle(tag) {

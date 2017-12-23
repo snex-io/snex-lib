@@ -1,4 +1,5 @@
 import {Vec2} from './math.js';
+import {circlesIntersect} from './geometry.js';
 
 export function createAreas(touchables) {
   return [...touchables].map(parseTag);
@@ -32,5 +33,28 @@ export class Circle {
     this.id = id;
     this.pos = new Vec2(x, y);
     this.radius = r;
+
+    this.state = false;
+  }
+
+  onTouches (touches, callback) {
+    let state = false;
+
+    for (const touch of touches) {
+      const intersects = circlesIntersect(
+        this.radius, touch.radius,
+        this.pos.x, this.pos.y,
+        touch.pos.x, touch.pos.y);
+
+      if (intersects) {
+        state = true;
+        break;
+      }
+    }
+
+    if (this.state !== state) {
+      this.state = state;
+      callback(state);
+    }
   }
 }

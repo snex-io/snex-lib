@@ -1,4 +1,4 @@
-import {createAreas} from './parse.js';
+import {parseAreas} from './parse.js';
 import {createEventEmitter} from './event.js';
 import {createEventHandler} from './handler.js';
 
@@ -12,8 +12,7 @@ export function createSensor(svg) {
   const {listen, emit} = createEventEmitter();
 
   function mapKeys() {
-    const touchables = surface.querySelectorAll('[id^=snex-]');
-    areas = createAreas(touchables);
+    areas = parseAreas(surface);
 
     handleEvent = createEventHandler(areas, handleKey);
   }

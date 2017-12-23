@@ -5,6 +5,13 @@ export function createAreas(touchables) {
 }
 
 function parseTag(tag) {
+  switch(tag.tagName) {
+    case 'circle':
+      return parseCircle(tag);
+  }
+}
+
+function parseCircle(tag) {
   const [, type, name] = tag.id.split('-');
   const rect = tag.getBoundingClientRect();
 

@@ -1,5 +1,5 @@
 import {Vec2} from './math.js';
-import {circlesIntersect} from './geometry.js';
+import {circlesIntersect, circleIntersectsRectangle} from './geometry.js';
 
 export class Circle {
   constructor(x, y, r) {
@@ -12,5 +12,16 @@ export class Circle {
         this.radius, touch.radius,
         this.pos.x, this.pos.y,
         touch.pos.x, touch.pos.y);
+  }
+}
+
+export class Rect {
+  constructor(x, y, w, h) {
+    this.pos = new Vec2(x, y);
+    this.size = new Vec2(w, h);
+  }
+
+  intersects (touch) {
+    return circleIntersectsRectangle(touch, this);
   }
 }

@@ -33,7 +33,7 @@ export class Button {
   }
 }
 
-export class Coord {
+export class Axis {
   constructor(shape, id = null) {
     this.shape = shape;
     this.id = id;

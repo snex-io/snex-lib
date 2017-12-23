@@ -32,8 +32,6 @@ function handleTouches(areas, touches, callback) {
 }
 
 export function createMouseHandler(areas, callback) {
-  const keys = areas.map(area => area.id);
-
   let mouseState = false;
 
   return function handleMouse(event) {

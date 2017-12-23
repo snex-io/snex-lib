@@ -1,12 +1,14 @@
 import {Circle as Touch} from './area.js';
 import {circlesIntersect} from './geometry.js';
 
+const TOUCH_RADIUS = 12;
+
 export function createTouchHandler(areas, callback) {
   return function handleTouch(event) {
     event.preventDefault();
 
     const touches = [...event.touches].map(touch => {
-      return new Touch(touch.pageX, touch.pageY, 12);
+      return new Touch(touch.pageX, touch.pageY, TOUCH_RADIUS);
     });
 
     handleTouches(areas, touches, callback);

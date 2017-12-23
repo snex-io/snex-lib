@@ -1,5 +1,5 @@
 import {Axis, Button} from './area.js';
-import {Circle} from './shape.js';
+import {Circle, Rect} from './shape.js';
 
 const truthy = v => !!v;
 
@@ -33,6 +33,8 @@ function parseShape(tag) {
   switch(tag.tagName) {
     case 'circle':
       return parseCircle(tag);
+    case 'rect':
+      return parseRect(tag);
   }
 
   console.error('Unrecognized tag', tag);
@@ -66,15 +68,13 @@ function parseCircle(tag) {
 
 
 function parseRect(tag) {
-  const {type, name} = getAttr(tag);
   const rect = tag.getBoundingClientRect();
 
-  const shape = new Circle(
+  const shape = new Rect(
     rect.left + rect.width / 2,
     rect.top + rect.height / 2,
-    rect.width * 0.5);
+    rect.width,
+    rect.height);
 
-  const area = new Button(shape, name);
-
-  return area;
+  return shape;
 }

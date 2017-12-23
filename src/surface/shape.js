@@ -22,6 +22,8 @@ export class Rect {
   }
 
   intersects (touch) {
-    return circleIntersectsRectangle(touch, this);
+    return circleIntersectsRectangle(
+      touch.radius, touch.pos.x, touch.pos.y,
+      this.pos.x, this.pos.y, this.size.x, this.size.y);
   }
 }

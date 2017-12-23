@@ -14,7 +14,7 @@ window.addEventListener('load', function() {
   const controller = document.getElementById('controller');
   const sensor = createSensor(controller);
   sensor.listen(data => {
-    console.log(data);
+    console.log(JSON.stringify(data), data);
   });
 });
 

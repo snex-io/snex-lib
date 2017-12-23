@@ -3,40 +3,60 @@ import {circlesIntersect} from './geometry.js';
 
 const TOUCH_RADIUS = 12;
 
-export function createTouchHandler(areas, callback) {
-  return function handleTouch(event) {
-    event.preventDefault();
+export function createEventHandler(areas, callback) {
+  const detect = createDetector(areas);
+  const route = createEventRouter();
 
-    const touches = [...event.touches].map(touch => {
-      return new Touch(touch.pageX, touch.pageY, TOUCH_RADIUS);
-    });
-
-    handleTouches(areas, touches, callback);
+  return function handleEvent(event) {
+    route(event, touches => detect(touches, callback));
   }
 }
 
-function handleTouches(areas, touches, callback) {
-  areas.forEach(area => {
-    for (const touch of touches) {
-      const intersects = circlesIntersect(
-        area.radius, touch.radius,
-        area.pos.x, area.pos.y,
-        touch.pos.x, touch.pos.y);
+function createEventRouter() {
+  const onTouch = createTouchListener();
+  const onMouse = createMouseListener();
 
-      if (intersects) {
-        callback(area.id, true);
-        return;
-      }
+  return function routeEvent(event, callback) {
+    if (event.touches) {
+      callback(onTouch(event));
+    } else {
+      callback(onMouse(event));
     }
-
-    callback(area.id, false);
-  });
+  };
 }
 
-export function createMouseHandler(areas, callback) {
+function createTouchListener() {
+  return function convertTouchEventToTouches(event) {
+    return [...event.touches].map(touch => {
+      return new Touch(touch.pageX, touch.pageY, TOUCH_RADIUS);
+    });
+  }
+}
+
+function createDetector(areas) {
+  return function handleTouches(touches, callback) {
+    areas.forEach(area => {
+      for (const touch of touches) {
+        const intersects = circlesIntersect(
+          area.radius, touch.radius,
+          area.pos.x, area.pos.y,
+          touch.pos.x, touch.pos.y);
+
+        if (intersects) {
+          callback(area.id, true);
+          return;
+        }
+      }
+
+      callback(area.id, false);
+    });
+  }
+}
+
+function createMouseListener(areas, callback) {
   let mouseState = false;
 
-  return function handleMouse(event) {
+  return function convertMouseEventToTouches(event) {
     event.preventDefault();
 
     if (event.type === 'mousedown') {
@@ -50,6 +70,6 @@ export function createMouseHandler(areas, callback) {
       touches.push(new Touch(event.pageX, event.pageY, 0));
     }
 
-    handleTouches(areas, touches, callback);
+    return touches;
   }
 }

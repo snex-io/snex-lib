@@ -10,7 +10,6 @@ export function createSensor(svg) {
   const surface = svg.contentDocument;
 
   let areas, handleEvent;
-  const states = Object.create(null);
 
   const {listen, emit} = createEventEmitter();
 
@@ -18,23 +17,13 @@ export function createSensor(svg) {
     const touchables = surface.querySelectorAll('[id^=snex-]');
     areas = createAreas(touchables);
 
-    for (const area of areas) {
-      states[area.id] = false;
-    }
-
     handleEvent = createEventHandler(areas, handleKey);
   }
 
   function handleKey(key, state) {
-    if (states[key] === state) {
-      return;
-    }
-
     if (state) {
       vibe(20);
     }
-
-    states[key] = state;
 
     const payload = {
       key,

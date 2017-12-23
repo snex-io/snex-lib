@@ -34,8 +34,16 @@ function createTouchListener() {
 }
 
 function createDetector(areas) {
+  const states = Object.create(null);
+
+  for (const area of areas) {
+    states[area.id] = false;
+  }
+
   return function handleTouches(touches, callback) {
     areas.forEach(area => {
+      let state = false;
+
       for (const touch of touches) {
         const intersects = circlesIntersect(
           area.radius, touch.radius,
@@ -43,12 +51,15 @@ function createDetector(areas) {
           touch.pos.x, touch.pos.y);
 
         if (intersects) {
-          callback(area.id, true);
-          return;
+          state = true;
+          break;
         }
       }
 
-      callback(area.id, false);
+      if (states[area.id] !== state) {
+        states[area.id] = state;
+        callback(area.id, state);
+      }
     });
   }
 }

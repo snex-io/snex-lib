@@ -54,8 +54,8 @@ export class Axis extends Area {
         callback(pos);
       } else if (this.shape.size) {
         const pos = new Vec2(
-          (touch.pos.x - this.shape.pos.x) / this.shape.size.x,
-          (touch.pos.y - this.shape.pos.y) / this.shape.size.y);
+          (touch.pos.x - this.shape.pos.x) / this.shape.size.x / 0.5,
+          (touch.pos.y - this.shape.pos.y) / this.shape.size.y / -0.5);
         callback(pos);
       }
     }

@@ -2,7 +2,8 @@
 <svg width="1000px" height="1000px" viewBox="0 0 1000 1000" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 
     <circle snex-name="A" snex-type="button" fill="#f00" cx="150" cy="150" r="50"></circle>
-    <circle id="snex-button-B" fill="#ff0" cx="250" cy="150" r="50"></circle>
+    <circle id="snex-button-B" fill="#0ff" cx="250" cy="150" r="50"></circle>
+    <circle snex-name="PAINT-ROUND" snex-type="axis" fill="#ff0" cx="350" cy="150" r="50"></circle>
 
-    <rect snex-name="PAINT" snex-type="coord" fill="#0f0" x="250" y="250" width="200" height="100"></rect>
+    <rect snex-name="PAINT" snex-type="axis" fill="#0f0" x="250" y="250" width="200" height="100"></rect>
 </svg>

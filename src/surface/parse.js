@@ -1,8 +1,10 @@
-import {Button} from './area.js';
+import {Axis, Button} from './area.js';
 import {Circle} from './shape.js';
 
+const truthy = v => !!v;
+
 export function createAreas(touchables) {
-  return touchables.map(parseTag);
+  return touchables.map(parseTag).filter(truthy);
 }
 
 export function parseAreas(surface) {
@@ -13,13 +15,27 @@ export function parseAreas(surface) {
 }
 
 function parseTag(tag) {
+  const shape = parseShape(tag);
+  if (shape) {
+    const {type, name} = getAttr(tag);
+    switch(type) {
+      case 'button':
+        return new Button(shape, name);
+      case 'axis':
+        return new Axis(shape, name);
+    }
+
+    console.error('Unrecognized type', type);
+  }
+}
+
+function parseShape(tag) {
   switch(tag.tagName) {
     case 'circle':
       return parseCircle(tag);
   }
 
   console.error('Unrecognized tag', tag);
-  throw new TypeError('Can not parse tag');
 }
 
 function getAttr(tag) {
@@ -38,6 +54,18 @@ function getAttr(tag) {
 }
 
 function parseCircle(tag) {
+  const rect = tag.getBoundingClientRect();
+
+  const shape = new Circle(
+    rect.left + rect.width / 2,
+    rect.top + rect.height / 2,
+    rect.width * 0.5);
+
+  return shape;
+}
+
+
+function parseRect(tag) {
   const {type, name} = getAttr(tag);
   const rect = tag.getBoundingClientRect();
 

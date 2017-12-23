@@ -1,6 +1,6 @@
 import {createAreas} from './area.js';
 import {createEventEmitter} from './event.js';
-import {createTouchHandler, createMouseHandler} from './handler.js';
+import {createEventHandler} from './handler.js';
 import {vibe} from './vibrate.js';
 
 
@@ -9,7 +9,7 @@ export function createSensor(svg) {
 
   const surface = svg.contentDocument;
 
-  let areas, handleMouse, handleTouch;
+  let areas, handleEvent;
   const states = Object.create(null);
 
   const {listen, emit} = createEventEmitter();
@@ -22,8 +22,7 @@ export function createSensor(svg) {
       states[area.id] = false;
     }
 
-    handleMouse = createMouseHandler(areas, handleKey);
-    handleTouch = createTouchHandler(areas, handleKey);
+    handleEvent = createEventHandler(areas, handleKey);
   }
 
   function handleKey(key, state) {
@@ -50,12 +49,12 @@ export function createSensor(svg) {
       return;
     }
 
-    handleMouse(event);
+    handleEvent(event);
   }
 
   function onTouch(event) {
     preferTouch = true;
-    handleTouch(event);
+    handleEvent(event);
   }
 
   const options = {passive: false};

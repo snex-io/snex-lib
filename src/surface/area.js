@@ -1,4 +1,5 @@
 import {Circle} from './shape.js';
+import {vibe} from './vibrate.js';
 
 export class Button {
   constructor(shape, id = null) {
@@ -20,7 +21,12 @@ export class Button {
     }
 
     if (this.state !== state) {
+      if (state) {
+        vibe(20);
+      }
+
       this.state = state;
+
       callback(state);
     }
   }

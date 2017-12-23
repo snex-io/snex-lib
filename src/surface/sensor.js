@@ -1,8 +1,6 @@
 import {createAreas} from './parse.js';
 import {createEventEmitter} from './event.js';
 import {createEventHandler} from './handler.js';
-import {vibe} from './vibrate.js';
-
 
 export function createSensor(svg) {
   let preferTouch = false;
@@ -21,10 +19,6 @@ export function createSensor(svg) {
   }
 
   function handleKey(key, state) {
-    if (state) {
-      vibe(20);
-    }
-
     const payload = {
       key,
       state: state ? 1 : 0,

@@ -1,4 +1,4 @@
-import {Axis, Button} from './area.js';
+import {Axis, Button, Map} from './area.js';
 import {Circle, Rect} from './shape.js';
 
 const truthy = v => !!v;
@@ -23,6 +23,8 @@ function parseTag(tag) {
         return new Button(shape, name);
       case 'axis':
         return new Axis(shape, name);
+      case 'map':
+        return new Map(shape, name);
     }
 
     console.error('Unrecognized type', type);

@@ -5,5 +5,7 @@
     <circle id="snex-button-B" fill="#0ff" cx="250" cy="150" r="50"></circle>
     <circle snex-name="PAINT-ROUND" snex-type="axis" fill="#ff0" cx="350" cy="150" r="50"></circle>
 
-    <rect snex-name="PAINT" snex-type="axis" fill="#0f0" x="250" y="250" width="200" height="100"></rect>
+    <rect snex-name="JOY" snex-type="axis" fill="#0f0" x="250" y="250" width="200" height="100"></rect>
+
+    <rect snex-name="COORD" snex-type="map" fill="#000" x="450" y="250" width="200" height="100"></rect>
 </svg>

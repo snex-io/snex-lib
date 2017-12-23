@@ -67,3 +67,26 @@ export class Axis extends Area {
     }
   }
 }
+
+export class Map extends Area {
+  onTouches (touches, callback) {
+    for (const touch of touches) {
+      if (this.shape.intersects(touch)) {
+        const pos = new Vec2(0, 0);
+        pos.x = touch.pos.x - this.shape.pos.x;
+        pos.y = touch.pos.y - this.shape.pos.y;
+        if (this.shape.radius) {
+          const size = this.shape.radius * 2;
+          pos.x = (pos.x + size / 2) / size;
+          pos.y = (pos.y + size / 2) / size;
+        } else if (this.shape.size) {
+          const w = this.shape.size.x;
+          const h = this.shape.size.y;
+          pos.x = (pos.x + w / 2) / w;
+          pos.y = (pos.y + h / 2) / h;
+        }
+        callback(pos);
+      }
+    }
+  }
+}

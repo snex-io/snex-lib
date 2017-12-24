@@ -9,9 +9,10 @@ export function buildURL(type, id) {
   return `${API_URL}/${type}?id=${encodeURIComponent(id)}`;
 }
 
-export function createPeer(server = SIGNALING_SERVER, path = '/') {
-  const [host, port] = server.split(':');
-  return new Peer({host, port, path, secure: true});
+export function createPeer(id) {
+  const [host, port] = SIGNALING_SERVER.split(':');
+  const path = '/';
+  return new Peer(id, {host, port, path, secure: true});
 }
 
 export function createSession(peer = createPeer()) {

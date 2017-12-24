@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 rm -rf ./dist ./browser
 
-npm run build
+yarn run build
 
-npm run build:test
+yarn run test:postbuild

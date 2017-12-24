@@ -34,7 +34,7 @@ export class Button extends Area{
 
       this.state = state;
 
-      callback(state);
+      callback(state ? 1 : 0);
     }
   }
 }

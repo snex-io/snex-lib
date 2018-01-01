@@ -48,11 +48,22 @@ export function createSensor(svg) {
   surface.addEventListener('mouseup', onMouse);
   surface.addEventListener('mousemove', onMouse);
 
+  function destroy() {
+    surface.removeEventListener('touchstart', onTouch);
+    surface.removeEventListener('touchend', onTouch);
+    surface.removeEventListener('touchmove', onTouch);
+
+    surface.removeEventListener('mousedown', onMouse);
+    surface.removeEventListener('mouseup', onMouse);
+    surface.removeEventListener('mousemove', onMouse);
+  }
+
   mapKeys();
 
   window.addEventListener('resize', mapKeys)
 
   return {
     listen,
+    destroy,
   };
 }

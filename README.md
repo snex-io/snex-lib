@@ -1,4 +1,4 @@
-# SNEX Virtual Gamepad API SDK
+# SNEX Virtual Gamepad SDK
 
 Library for using [SNEX.io](https://snex.io) virtual gamepads providing SVG surface interaction, peering, and message sending.
 

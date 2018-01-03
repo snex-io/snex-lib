@@ -1,6 +1,10 @@
-# SNEX
+# SNEX Virtual Gamepad API SDK
 
-Library for using [SNEX.io](https://snex.io) gamepads.
+Library for using [SNEX.io](https://snex.io) virtual gamepads providing SVG surface interaction, peering, and message sending.
+
+## What is it?
+
+SNEX provides on-screen virtual gamepads that can connect to any web application using WebRTC. Just create a session, share the session token, and start receiving signals right away.
 
 
 ## Usage

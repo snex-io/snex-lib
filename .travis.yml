@@ -37,5 +37,6 @@ deploy:
     bucket: "cdn.snex.io"
     acl: public-read
     local-dir: browser
+    region: us-west-2
     on:
       tags: true

@@ -29,14 +29,3 @@ deploy:
     local-dir: browser
     on:
       tags: true
-      
-  - provider: s3
-    skip_cleanup: true
-    access_key_id: $AWS_ACCESS_KEY_ID
-    secret_access_key: $AWS_SECRET_ACCESS_KEY
-    bucket: "cdn.snex.io"
-    acl: public-read
-    local-dir: browser
-    region: us-west-2
-    on:
-      tags: true

@@ -4,8 +4,8 @@ import babel from 'rollup-plugin-babel';
 import uglify from 'rollup-plugin-uglify';
 
 function getVersion() {
-  if (process.env.TRAVIS_TAG) {
-    return process.env.TRAVIS_TAG;
+  if (process.env.VERSION) {
+    return process.env.VERSION;
   }
 
   return 'snapshot';

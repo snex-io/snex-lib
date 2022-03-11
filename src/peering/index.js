@@ -2,7 +2,7 @@ import Peer from 'peerjs';
 import util from 'peerjs/lib/util';
 import {Session} from './session.js';
 
-export const API_URL = 'https://pomle.snex.io';
+export const API_URL = 'https://snex.pomle.com';
 export const SIGNALING_SERVER = 'peer-secure.snex.pomle.com:443';
 
 export function buildURL(type, id) {

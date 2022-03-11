@@ -3,7 +3,7 @@
   "version": "0.5.1",
   "description": "Library for listening to input from SNEX gamepads.",
   "license": "MIT",
-  "homepage": "http://snex.io",
+  "homepage": "http://snex.pomle.com",
   "main": "dist/snex.js",
   "repository": "https://github.com/snex-io/snex-lib",
   "author": "Pontus Alexander (http://pomle.com)",

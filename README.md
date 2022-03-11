@@ -45,7 +45,7 @@ snex.createSession()
 
 1) Add the following snippet to your site.
 ```html
-<script src="https://cdn.pomle.snex.com/snex.latest.min.js"></script>
+<script src="https://snex-cdn.pomle.com/snex.latest.min.js"></script>
 ```
 
 2) Implement.

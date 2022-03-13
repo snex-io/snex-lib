@@ -1,7 +1,7 @@
 # SNEX Virtual Gamepad SDK
 [![Build Status](https://travis-ci.org/snex-io/snex-lib.svg?branch=master)](https://travis-ci.org/snex-io/snex-lib)
 
-Library for using [SNEX.io](https://snex.io) virtual gamepads providing SVG surface interaction, peering, and message sending.
+Library for using [SNEX.io](https://snex.pomle.com) virtual gamepads providing SVG surface interaction, peering, and message sending.
 
 ## What is it?
 

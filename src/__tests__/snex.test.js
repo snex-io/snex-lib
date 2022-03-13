@@ -59,14 +59,14 @@ describe('SNEX Lib', () => {
 
     describe('#buildURL', () => {
         it('returns a URL given a controller type and id', () => {
-            expect(snex.buildURL('nes', '1r91j2/1125')).toBe('https://snex.io/nes?id=1r91j2%2F1125');
+            expect(snex.buildURL('nes', '1r91j2/1125')).toBe('https://snex.pomle.com/nes?id=1r91j2%2F1125');
         });
     });
 
     describe('#createPeer', () => {
         it('returns instance of Peer with expected peer exchange url', () => {
             const peer = snex.createPeer();
-            expect(peer.options.host).toBe('peer-secure.snex.io');
+            expect(peer.options.host).toBe('snex-peer.pomle.com');
             expect(peer.options.port).toBe('443');
             expect(peer.options.secure).toBe(true);
             expect(peer.options.path).toBe('/');
